@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NailFlow</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação principal">
+        <div class="brand">
+          <div class="brand-mark">NF</div>
+          <div>
+            <strong>NailFlow</strong>
+            <span>Enquanto você atende</span>
+          </div>
+        </div>
+
+        <nav class="nav-list">
+          <button class="nav-item active" data-view="home" title="Home">
+            <span class="icon">H</span><span>Home</span>
+          </button>
+          <button class="nav-item" data-view="onboarding" title="Configuração inicial">
+            <span class="icon">OK</span><span>Começar</span>
+          </button>
+          <button class="nav-item" data-view="agenda" title="Agenda">
+            <span class="icon">AG</span><span>Agenda</span>
+          </button>
+          <button class="nav-item" data-view="ia" title="IA WhatsApp">
+            <span class="icon">IA</span><span>IA WhatsApp</span>
+          </button>
+          <button class="nav-item" data-view="financeiro" title="Financeiro">
+            <span class="icon">R$</span><span>Seu lucro</span>
+          </button>
+          <button class="nav-item" data-view="perfil" title="Perfil público">
+            <span class="icon">PF</span><span>Perfil</span>
+          </button>
+          <button class="nav-item" data-view="clientes" title="Clientes">
+            <span class="icon">CL</span><span>Clientes</span>
+          </button>
+          <button class="nav-item" data-view="backoffice" title="Operação interna">
+            <span class="icon">OP</span><span>Operação</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <span class="status-dot"></span>
+          WhatsApp conectado
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Secretária IA para beleza autônoma</p>
+            <h1 id="view-title">Sua operação de hoje</h1>
+          </div>
+          <div class="topbar-actions">
+            <button class="icon-button" id="simulate-message" title="Simular mensagem de cliente">IA</button>
+            <button class="primary-button" data-view="onboarding">Configurar IA</button>
+          </div>
+        </header>
+
+        <section id="home" class="view active-view">
+          <div class="hero-panel">
+            <div class="hero-copy">
+              <p class="eyebrow" id="today-label">Hoje</p>
+              <h2>Sua IA respondeu 18 mensagens enquanto você atendia.</h2>
+              <p>Foram 4 agendamentos confirmados, 1 horário salvo pela lista de espera e R$ 520 previstos para o dia.</p>
+              <div class="hero-actions">
+                <button class="primary-button" data-view="ia">Ver conversas</button>
+                <button class="secondary-button" data-view="agenda">Abrir agenda</button>
+              </div>
+            </div>
+            <div class="phone-preview" aria-label="Prévia de conversa no WhatsApp">
+              <div class="phone-header">Cliente · WhatsApp</div>
+              <div class="bubble incoming">Oi, tem horário para blindagem hoje?</div>
+              <div class="bubble outgoing">Tenho sim, flor. Hoje consigo 15h40 ou 18h20. A blindagem fica R$ 95 e dura 1h20. Quer que eu reserve?</div>
+              <div class="bubble incoming">18h20 pode ser</div>
+              <div class="bubble outgoing">Perfeito. Deixei seu horário separado. Te mando lembrete 2h antes.</div>
+            </div>
+          </div>
+
+          <div class="metric-grid">
+            <article class="metric-card">
+              <span>Mensagens respondidas</span>
+              <strong id="metric-messages">18</strong>
+              <small>tempo médio: 4s</small>
+            </article>
+            <article class="metric-card">
+              <span>Agenda preenchida</span>
+              <strong>82%</strong>
+              <small>2 encaixes disponíveis</small>
+            </article>
+            <article class="metric-card">
+              <span>Seu lucro real</span>
+              <strong>R$ 6.840</strong>
+              <small>previsão do mês</small>
+            </article>
+            <article class="metric-card">
+              <span>Clientes salvas</span>
+              <strong id="metric-saved-clients">7</strong>
+              <small>via lembrete e espera</small>
+            </article>
+          </div>
+
+          <div class="content-grid two-columns">
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Próximos atendimentos</p>
+                  <h3>Agenda inteligente</h3>
+                </div>
+                <button class="text-button" data-view="agenda">Ver tudo</button>
+              </div>
+              <div id="today-list" class="timeline"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Inteligência operacional</p>
+                  <h3>O que merece atenção</h3>
+                </div>
+              </div>
+              <div class="insight-list">
+                <div class="insight good">
+                  <strong>Seu melhor serviço</strong>
+                  <span>Blindagem gerou 34% do lucro do mês. Preço sugerido: R$ 105.</span>
+                </div>
+                <div class="insight warn">
+                  <strong>Limite MEI</strong>
+                  <span>Você chegou a 78% do limite anual. Aviso preventivo ativado.</span>
+                </div>
+                <div class="insight">
+                  <strong>Cliente inativa</strong>
+                  <span>12 clientes não voltam há 45 dias. A IA preparou uma mensagem carinhosa.</span>
+                  <button class="text-button" data-view="clientes">Abrir reativação</button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section id="onboarding" class="view">
+          <div class="wizard-layout">
+            <section class="panel setup-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Configuração em menos de 10 minutos</p>
+                  <h3>Sua IA precisa conhecer seu jeito de atender</h3>
+                </div>
+                <span class="step-chip"><span id="step-number">1</span>/4</span>
+              </div>
+              <div class="progress-track"><div id="progress-bar"></div></div>
+              <div id="wizard-content"></div>
+              <div class="wizard-actions">
+                <button class="secondary-button" id="prev-step">Voltar</button>
+                <button class="primary-button" id="next-step">Continuar</button>
+              </div>
+            </section>
+
+            <aside class="panel magic-panel">
+              <p class="eyebrow">Preview da IA</p>
+              <h3>Primeiro momento mágico</h3>
+              <div class="chat-card" id="preview-chat"></div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="agenda" class="view">
+          <div class="toolbar">
+            <div class="segmented" role="tablist" aria-label="Visualização da agenda">
+              <button class="active" data-agenda-view="Dia">Dia</button>
+              <button data-agenda-view="Semana">Semana</button>
+              <button data-agenda-view="Mês">Mês</button>
+            </div>
+            <button class="primary-button" id="add-slot">Novo horário</button>
+          </div>
+          <div class="content-grid agenda-grid">
+            <section class="panel day-column">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow" id="weekday-label">Hoje</p>
+                  <h3 id="agenda-heading">Atendimentos de hoje</h3>
+                </div>
+              </div>
+              <div id="agenda-list" class="timeline detailed"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Lista de espera</p>
+                  <h3>Horários salvos automaticamente</h3>
+                </div>
+              </div>
+              <div id="waitlist" class="waitlist"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="ia" class="view">
+          <div class="content-grid two-columns">
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">IA WhatsApp</p>
+                  <h3>Conversas em andamento</h3>
+                </div>
+                <span class="health good">92% resolvidas</span>
+              </div>
+              <div id="conversation-list" class="conversation-list"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Como a IA fala por você</p>
+                  <h3>Personalidade e segurança</h3>
+                </div>
+              </div>
+              <label class="field-label">Tom da resposta</label>
+              <div class="choice-grid" id="tone-options">
+                <button class="choice active">Caloroso e pessoal</button>
+                <button class="choice">Profissional direto</button>
+                <button class="choice">Descontraído com emoji</button>
+              </div>
+              <label class="toggle-row">
+                <input type="checkbox" checked />
+                <span>A IA pode reservar horários sozinha quando houver vaga real</span>
+              </label>
+              <label class="toggle-row">
+                <input type="checkbox" checked />
+                <span>Escalar reclamações, urgências e reembolso para mim</span>
+              </label>
+              <div class="rules-box">
+                <strong>Regra de segurança ativa</strong>
+                <span>A IA só confirma preço e horário depois de validar sua agenda e seus serviços cadastrados.</span>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section id="financeiro" class="view">
+          <div class="finance-layout">
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Financeiro invisível</p>
+                  <h3>O que sobrou pra você este mês</h3>
+                </div>
+                <strong class="money-total">R$ 6.840</strong>
+              </div>
+              <div id="finance-bars" class="finance-bars"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Calculadora de preço</p>
+                  <h3>Preço mínimo recomendado</h3>
+                </div>
+              </div>
+              <label class="field-label" for="cost-input">Custo do serviço</label>
+              <input id="cost-input" class="text-input" type="number" value="28" min="0" />
+              <label class="field-label" for="margin-input">Margem desejada</label>
+              <input id="margin-input" class="text-input" type="number" value="65" min="1" max="95" />
+              <div class="price-result">
+                <span>Preço recomendado</span>
+                <strong id="recommended-price">R$ 80</strong>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section id="perfil" class="view">
+          <div class="profile-layout">
+            <section class="public-profile">
+              <div class="profile-cover"></div>
+              <div class="profile-main">
+                <div class="avatar">MA</div>
+                <div>
+                  <p class="badge">Profissional Verificada</p>
+                  <h2>Marina Alves Nails</h2>
+                  <p>Blindagem, banho de gel e nail art delicada em Pinheiros.</p>
+                </div>
+              </div>
+              <div class="portfolio-grid">
+                <div class="portfolio-img coral"></div>
+                <div class="portfolio-img mint"></div>
+                <div class="portfolio-img blue"></div>
+              </div>
+              <button class="primary-button wide">Agendar agora</button>
+            </section>
+
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Link público</p>
+                  <h3>nailflow.app/marina-nails</h3>
+                </div>
+              </div>
+              <div class="service-list" id="profile-services"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="clientes" class="view">
+          <div class="content-grid two-columns">
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Retenção automática</p>
+                  <h3>Clientes que podem voltar esta semana</h3>
+                </div>
+                <button class="primary-button" id="generate-reactivation">Gerar mensagens</button>
+              </div>
+              <div id="client-list" class="client-list"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Mensagem pronta</p>
+                  <h3>Reativação com a sua voz</h3>
+                </div>
+              </div>
+              <div class="rules-box">
+                <strong>Sem pressão, sem linguagem de robô</strong>
+                <span>A IA usa histórico da cliente, último serviço e horários livres reais antes de sugerir retorno.</span>
+              </div>
+              <div class="chat-card" id="reactivation-preview">
+                <div class="bubble outgoing">Oi, Ana. Vi que já faz um tempinho desde sua última blindagem. Essa semana tenho quinta 15h40 e sexta 10h. Quer que eu deixe um horário separado pra você?</div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section id="backoffice" class="view">
+          <div class="metric-grid">
+            <article class="metric-card">
+              <span>MRR</span>
+              <strong>R$ 69.000</strong>
+              <small>meta M12</small>
+            </article>
+            <article class="metric-card">
+              <span>Ativação D1</span>
+              <strong>68%</strong>
+              <small>acima da meta</small>
+            </article>
+            <article class="metric-card">
+              <span>Churn mensal</span>
+              <strong>5,4%</strong>
+              <small>em observação</small>
+            </article>
+            <article class="metric-card">
+              <span>Latência IA</span>
+              <strong>4,8s</strong>
+              <small>saudável</small>
+            </article>
+          </div>
+          <section class="panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">CS operando até 2.000 usuárias</p>
+                <h3>Alertas que precisam de ação</h3>
+              </div>
+            </div>
+            <div class="ops-table" id="ops-table"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

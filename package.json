@@ -1,0 +1,10 @@
+{
+  "name": "nailflow",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Prototipo estatico do aplicativo NailFlow.",
+  "scripts": {
+    "dev": "node static-server.js",
+    "start": "node static-server.js"
+  }
+}
